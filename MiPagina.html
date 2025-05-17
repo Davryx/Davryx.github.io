@@ -85,11 +85,15 @@
       border-color: #7bbdd9;
     }
 
-    .cards {
+    .tab-content {
+      display: none;
+      padding: 0 2rem;
+    }
+
+    .tab-content.active {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
-      padding: 0 2rem;
       margin-bottom: 4rem;
     }
 
@@ -152,6 +156,12 @@
       border: none;
     }
 
+    .file-preview {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #7bbdd9;
+    }
+
     footer {
       text-align: center;
       padding: 2rem;
@@ -179,13 +189,13 @@
   </section>
 
   <div class="tabs">
-    <button class="active">Artículos</button>
-    <button>Fotografías</button>
-    <button>Podcasts</button>
-    <button>Videos</button>
+    <button class="tab-btn active" data-tab="articulos">Artículos</button>
+    <button class="tab-btn" data-tab="fotos">Fotografías</button>
+    <button class="tab-btn" data-tab="podcast">Podcasts</button>
+    <button class="tab-btn" data-tab="video">Videos</button>
   </div>
 
-  <section class="cards">
+  <section id="articulos" class="tab-content active">
     <div class="card">
       <h4>TECNOLOGÍA</h4>
       <h3>El futuro de la inteligencia artificial</h3>
@@ -203,9 +213,22 @@
     </div>
   </section>
 
+  <section id="fotos" class="tab-content">
+    <div class="card"><h3>Galería en construcción...</h3></div>
+  </section>
+
+  <section id="podcast" class="tab-content">
+    <div class="card"><h3>Próximamente tus episodios favoritos.</h3></div>
+  </section>
+
+  <section id="video" class="tab-content">
+    <div class="card"><h3>Explora nuestros videos aquí pronto.</h3></div>
+  </section>
+
   <div class="upload">
     <h3>Sube tu archivo</h3>
-    <input type="file" />
+    <input type="file" id="fileUpload" />
+    <div class="file-preview" id="filePreview">Ningún archivo seleccionado.</div>
   </div>
 
   <section class="newsletter">
@@ -218,5 +241,33 @@
   <footer>
     © 2025 Davry Aguilar. Todos los derechos reservados.
   </footer>
+
+  <script>
+    // PESTAÑAS
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(btn => btn.classList.remove('active'));
+        contents.forEach(content => content.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // SUBIDA DE ARCHIVOS
+    const fileInput = document.getElementById('fileUpload');
+    const filePreview = document.getElementById('filePreview');
+
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length > 0) {
+        filePreview.textContent = `Archivo seleccionado: ${fileInput.files[0].name}`;
+      } else {
+        filePreview.textContent = 'Ningún archivo seleccionado.';
+      }
+    });
+  </script>
 </body>
 </html>
