@@ -4,276 +4,149 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Davry Aguilar</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // Modo oscuro automático
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(180deg, #0d1117, #1a1f25);
-      color: #f0f0f0;
+      background: linear-gradient(to right, #0f0f0f, #1f1f2e);
+      color: #e0e0e0;
     }
-
     header {
-      background-color: #0d1117;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #2c2f33;
-    }
-
-    header h1 {
-      color: #7bbdd9;
-      margin: 0;
-      font-size: 1.5rem;
-    }
-
-    nav a {
-      color: #aaa;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav a:hover, nav a.active {
-      color: #7bbdd9;
-    }
-
-    .hero {
+      background: black;
+      color: white;
+      padding: 1rem;
       text-align: center;
-      padding: 4rem 2rem;
+      box-shadow: 0 0 10px #00f0ff88;
     }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background: #111;
     }
-
-    .hero p {
-      font-size: 1.1rem;
+    nav a {
       color: #ccc;
-      margin-bottom: 2rem;
+      text-decoration: none;
     }
-
-    .search-box input {
-      padding: 0.7rem 1rem;
-      width: 60%;
-      max-width: 400px;
-      border: none;
-      border-radius: 20px;
-      background: #2b2f35;
-      color: #fff;
-    }
-
     .tabs {
       display: flex;
       justify-content: center;
-      margin: 2rem 0;
+      gap: 1rem;
+      margin: 1rem 0;
     }
-
-    .tabs button {
-      background: none;
-      border: none;
-      color: #aaa;
-      margin: 0 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-    }
-
-    .tabs button.active {
-      color: #7bbdd9;
-      border-color: #7bbdd9;
-    }
-
-    .tab-content {
-      display: none;
-      padding: 0 2rem;
-    }
-
-    .tab-content.active {
+    .tab-content { display: none; padding: 1rem; }
+    .tab-content.active { display: block; }
+    .galeria {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 4rem;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
     }
-
-    .card {
-      background: linear-gradient(145deg, #1a1f25, #2b2f35);
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    .card h4 {
-      margin-top: 0;
-      color: #7bbdd9;
-    }
-
-    .card h3 {
-      margin: 0.5rem 0;
-      color: #fff;
-    }
-
-    .card p {
-      color: #bbb;
-    }
-
-    .newsletter {
-      text-align: center;
-      padding: 4rem 2rem;
-      background: linear-gradient(180deg, #0f1217, #1b2129);
-    }
-
-    .newsletter input, .newsletter button {
-      padding: 0.7rem 1rem;
-      border: none;
-      border-radius: 20px;
-      margin: 0.5rem;
-    }
-
-    .newsletter input {
-      width: 250px;
-      background: #2b2f35;
-      color: white;
-    }
-
-    .newsletter button {
-      background: #7bbdd9;
-      color: black;
-      cursor: pointer;
-    }
-
-    .upload {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .upload input[type="file"] {
-      background-color: #2b2f35;
+    .galeria img {
+      width: 100%;
       border-radius: 8px;
-      color: #ccc;
-      padding: 0.5rem;
-      border: none;
+      box-shadow: 0 0 10px #00f0ff44;
     }
-
-    .file-preview {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: #7bbdd9;
-    }
-
     footer {
       text-align: center;
-      padding: 2rem;
-      color: #666;
-      font-size: 0.9rem;
+      padding: 1rem;
+      background: #0a0a0a;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Davry Aguilar</h1>
-    <nav>
-      <a href="#" class="active">Inicio</a>
-      <a href="#">Sobre mí</a>
-      <a href="#">Contacto</a>
-    </nav>
   </header>
 
-  <section class="hero">
-    <h2>Un espacio para compartir conocimiento y experiencias</h2>
-    <p>Artículos sobre tecnología, historia, educación, viajes y gastronomía</p>
-    <div class="search-box">
-      <input type="text" placeholder="Buscar artículos...">
-    </div>
-  </section>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Sobre mí</a>
+    <a href="#">Contacto</a>
+  </nav>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="articulos">Artículos</button>
-    <button class="tab-btn" data-tab="fotos">Fotografías</button>
-    <button class="tab-btn" data-tab="podcast">Podcasts</button>
-    <button class="tab-btn" data-tab="video">Videos</button>
+    <button onclick="showTab('articulos')">Artículos</button>
+    <button onclick="showTab('fotografias')">Fotografías</button>
+    <button onclick="showTab('podcast')">Podcast</button>
+    <button onclick="showTab('video')">Video</button>
   </div>
 
-  <section id="articulos" class="tab-content active">
-    <div class="card">
-      <h4>TECNOLOGÍA</h4>
-      <h3>El futuro de la inteligencia artificial</h3>
-      <p>Un análisis sobre cómo la IA está transformando nuestra sociedad.</p>
+  <div id="articulos" class="tab-content active">
+    <h2>Artículos</h2>
+    <select onchange="filtrarCategoria(this.value)">
+      <option value="">Todas las categorías</option>
+      <option value="tecnologia">Tecnología</option>
+      <option value="historia">Historia</option>
+      <option value="educacion">Educación</option>
+      <option value="viajes">Viajes</option>
+      <option value="gastronomia">Gastronomía</option>
+    </select>
+    <div id="lista-articulos">
+      <!-- Aquí van los artículos filtrables -->
     </div>
-    <div class="card">
-      <h4>HISTORIA</h4>
-      <h3>Civilizaciones olvidadas de América</h3>
-      <p>Descubre culturas fascinantes antes de la llegada de los europeos.</p>
-    </div>
-    <div class="card">
-      <h4>EDUCACIÓN</h4>
-      <h3>Métodos de aprendizaje efectivos</h3>
-      <p>Estrategias basadas en neurociencia para optimizar el estudio.</p>
-    </div>
-  </section>
-
-  <section id="fotos" class="tab-content">
-    <div class="card"><h3>Galería en construcción...</h3></div>
-  </section>
-
-  <section id="podcast" class="tab-content">
-    <div class="card"><h3>Próximamente tus episodios favoritos.</h3></div>
-  </section>
-
-  <section id="video" class="tab-content">
-    <div class="card"><h3>Explora nuestros videos aquí pronto.</h3></div>
-  </section>
-
-  <div class="upload">
-    <h3>Sube tu archivo</h3>
-    <input type="file" id="fileUpload" />
-    <div class="file-preview" id="filePreview">Ningún archivo seleccionado.</div>
   </div>
 
-  <section class="newsletter">
-    <h2>Suscríbete a nuestro boletín</h2>
-    <p>Recibe actualizaciones y contenido exclusivo directo a tu correo.</p>
-    <input type="email" placeholder="Tu correo electrónico" />
-    <button>Suscribirse</button>
+  <div id="fotografias" class="tab-content">
+    <h2>Galería de fotos</h2>
+    <div class="galeria">
+      <img src="fotos/foto1.jpg" alt="Foto 1" />
+      <img src="fotos/foto2.jpg" alt="Foto 2" />
+      <!-- Más fotos -->
+    </div>
+  </div>
+
+  <div id="podcast" class="tab-content">
+    <h2>Podcast</h2>
+    <p>Contenido de audio próximamente.</p>
+  </div>
+
+  <div id="video" class="tab-content">
+    <h2>Videos</h2>
+    <p>Contenido de video próximamente.</p>
+  </div>
+
+  <section>
+    <h2>Subir archivo</h2>
+    <form action="subir.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="archivo" required>
+      <button type="submit">Subir</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Comentarios</h2>
+    <form action="comentarios.php" method="post">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <textarea name="comentario" placeholder="Escribe un comentario..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
   </section>
 
   <footer>
-    © 2025 Davry Aguilar. Todos los derechos reservados.
+    &copy; 2025 Davry Aguilar. Todos los derechos reservados.
   </footer>
 
   <script>
-    // PESTAÑAS
-    const tabs = document.querySelectorAll('.tab-btn');
-    const contents = document.querySelectorAll('.tab-content');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(btn => btn.classList.remove('active'));
-        contents.forEach(content => content.classList.remove('active'));
-
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
       });
-    });
+      document.getElementById(tabId).classList.add('active');
+    }
 
-    // SUBIDA DE ARCHIVOS
-    const fileInput = document.getElementById('fileUpload');
-    const filePreview = document.getElementById('filePreview');
-
-    fileInput.addEventListener('change', () => {
-      if (fileInput.files.length > 0) {
-        filePreview.textContent = `Archivo seleccionado: ${fileInput.files[0].name}`;
-      } else {
-        filePreview.textContent = 'Ningún archivo seleccionado.';
-      }
-    });
+    function filtrarCategoria(categoria) {
+      const contenedor = document.getElementById('lista-articulos');
+      contenedor.innerHTML = '<p>Mostrando artículos de: ' + (categoria || 'todas las categorías') + '</p>';
+    }
   </script>
-<div class="upload">
-  <h3>Sube tu archivo</h3>
-  <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="archivo" required>
-    <button type="submit">Subir</button>
-  </form>
-</div>
-
+</body>
+</html>
